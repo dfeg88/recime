@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h2 class="page-header">My Shopping Lists</h2><br>
+
+  <div class="row" *ngIf="!shoppingLists?.length; else showShoppingLists">
+    <div class="col-12">
+        <h4 class="lead">Oops, it looks like you haven't created any shopping lists yet.</h4>
+        <button type="button" class="btn btn-success" (click)="goToCreateSL()"><i class="fas fa-plus-circle"></i> Create a Shopping List</button>
+    </div>    
+  </div>
+
+  <ng-template #showShoppingLists>
+    <div class="row" [@shoppingListAnim]="shoppingLists.length">
+      <div class="col-lg-3 col-sm-12 col-xs-12" *ngFor="let shoppingList of shoppingLists">
+        <div class="card text-center" id="shopping-lists">
+          <img class="card-img-top sl-image">
+          <div class="card-block">
+            <h5 class="card-title">
+              <strong>{{shoppingList.shoppingListName | uppercase}}</strong>
+            </h5>
+            <p class="card-text">
+              <i>{{shoppingList.ingredients.length}} ingredients</i>
+            </p>
+            <button type="button" class="btn btn-sm btn-info" (click)="goToDetail(shoppingList._id)">Edit</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="deleteShoppingList(shoppingList._id, shoppingList.shoppingListName)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

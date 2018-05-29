@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="shoppingListForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <label class="col-form-label">Shopping List Name:</label>
+          <input class="form-control form-control-sm" formControlName="shoppingListName" required maxlength="30" minlength="1">
+        </div>
+        <div class="form-group">
+          <label class="col-form-label">Ingredients:</label>
+          <div formArrayName="ingredients" class="well well-sm">
+            <table class="table table-sm">
+              <thead class="thead-default">
+                <tr>
+                  <th>Quantity</th>
+                  <th>Measurement</th>
+                  <th>Ingredient Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i">
+                  <td>
+                    <input class="form-control form-control-sm" formControlName="quantity">
+                  </td>
+                  <td>
+                    <input class="form-control form-control-sm" formControlName="measurement">
+                  </td>
+                  <td>
+                    <input class="form-control form-control-sm" formControlName="ingredientName">
+                  </td>
+                  <td>
+                    <button (click)="deleteIngredient(i)" type="button" class="btn btn-sm delete-btn" aria-label="Left Align">
+                      <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <button type="submit" [disabled]="!shoppingListForm.valid" class="btn btn-success btn-sm">Create</button>
+        <button type="button" class="btn btn-info btn-sm" (click)="clearShoppingList()">Clear</button>
+      </form>
+    </div>
+    <div class="col-6">
+      <h3>Your Recipes:</h3>
+      <div *ngFor="let recipe of recipes; let i = index">
+        <div class="row" id="recipe-list">
+          <div class="col-4">
+            <h6>{{recipe.recipeName}}</h6>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <button type="button" class="btn btn-success btn-sm" id="add-button{{i}}" (click)="addRecipeIngredientsToShoppingList(recipe.ingredients)">
+                Add to List
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" id="remove-button{{i}}" (click)="removeRecipeIngredientsToShoppingList(recipe.ingredients)">
+                Remove from List
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <pre>shoppingListForm value: {{ shoppingListForm.value | json }}</pre> -->
+</div>

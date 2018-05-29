@@ -1,0 +1,15 @@
+<br />
+<div class="container">
+  <div class="row d-none d-lg-block">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/recipes/create']" [routerLinkActive]="['active']">Create Recipe &nbsp;<i class="fas fa-utensils" aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/recipes/my-recipes']" [routerLinkActive]="['active']">My Recipes &nbsp;<i class="fa fa-th-list" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<br />
+<router-outlet></router-outlet>

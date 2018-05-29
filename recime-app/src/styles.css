@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  height: 100%;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+body {
+  background: #F3F9FE;
+  padding: 0;
+}
+
+#body {
+  min-height: calc(85vh - 69.5px);
+}
+
+button {
+  cursor: pointer;
+}
+
+.nav-tabs {
+ border-bottom: 1px solid black;
+}
+
+.nav-tabs {
+  width: 100%;
+}
+
+.nav-tabs .nav-link {
+  color: black;
+}
+
+.nav-tabs > .nav-item .active {
+  color: #000;
+  border: 1px solid black;
+  border-bottom-color: #F3F9FE;
+  background-color: #F3F9FE;
+}
+
+.lead {
+  margin-bottom: 15px;
+}

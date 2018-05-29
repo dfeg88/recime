@@ -1,0 +1,30 @@
+.hero-banner {
+  background: #ffffff url("/assets/images/hero-baner.jpg") no-repeat;
+  height: calc(100vh - 55px);
+  width: 100%;
+  background-size: 100% 100%;
+  opacity: 0.8;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.bottom-middle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+button {
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+button:click {
+  text-decoration: none;
+}
+
+#step-1, #step-2, #step-3 {
+  margin: 45px 0px 45px 0px;
+}

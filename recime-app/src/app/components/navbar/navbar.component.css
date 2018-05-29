@@ -1,0 +1,30 @@
+.logout {
+  color: #FF4136;
+}
+
+nav {
+  line-height: 2em;
+}
+
+.dropdown-menu {
+  padding: 0;
+  margin-top: -0.8em;
+}
+
+.dropdown-divider {
+  margin: 0;
+}
+
+.dropdown-item:hover {
+  background-color: #7B9993;
+  color: #F7F6F3;
+}
+
+.fa-user-circle:hover {
+  color: #7B9993;
+}
+
+.dropdown:hover>.dropdown-menu {
+  max-height: 200px;
+  opacity: 1;
+}

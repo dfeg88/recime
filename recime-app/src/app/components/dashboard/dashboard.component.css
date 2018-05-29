@@ -1,0 +1,10 @@
+#recipe-count {
+  width: 100%;
+  margin-top: 2em;
+  padding: 15px;
+}
+
+.dash-component {
+  background-color: #fff;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}

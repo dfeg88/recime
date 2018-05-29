@@ -1,0 +1,31 @@
+.delete-btn {
+  background-color: #a94442;
+  color: white;
+}
+
+.glyphicon-trash {
+  color: white;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+textarea {
+  border: 0.1em solid #ccc;
+  border-radius: 0.5em;
+  resize: none;
+}

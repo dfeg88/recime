@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngIf="shoppingList">
+    <h2>{{shoppingList.shoppingListName}}</h2>
+
+    <div *ngFor="let ingredient of shoppingList.ingredients; let i = index">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="checkbox{{i}}" (click)="orderChecklist(ingredient)">
+        <label class="form-check-label strikethrough" for="checkbox{{i}}">
+          {{ingredient.quantity}} {{ingredient.measurement}} {{ingredient.ingredientName}}
+        </label>
+      </div>
+    </div>
+  </div>
+
+</div>

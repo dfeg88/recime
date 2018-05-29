@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngIf="user">
+    <h2 class="page-header">{{user.firstName}} {{user.lastName}}</h2>
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">First Name: {{user.firstName}}</li>
+        <li class="list-group-item">Last Name: {{user.lastName}}</li>
+        <li class="list-group-item">Email: {{user.email}}</li>
+        <li class="list-group-item">Password: {{user.password}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  

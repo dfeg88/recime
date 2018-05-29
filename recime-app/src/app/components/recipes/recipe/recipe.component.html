@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="row">
+    <h2 class="page-header">Create Recipe</h2>
+  </div>
+
+  <div class="row">
+      <div class="col-5">
+        <hr>
+      </div>
+      <div class="col-2 text-center">
+        <p class="lead text-info"><strong>IMPORT FROM URL</strong></p>
+      </div>
+      <div class="col-5">
+        <hr>
+      </div>
+    </div>
+
+  <div class="row">
+    <form class="form-inline">
+      <div class="form-group mb-2" id="import">
+        <label>Enter URL:</label>
+        <input size="25" type="text" class="form-control" name="recipeURL" [(ngModel)]="recipeURL">
+        <button [disabled]="!isURLEntered()" type="button" class="btn btn-info text-white" (click)="getImportedRecipe(recipeURL)"><i class="fas fa-download"></i>&nbsp;Import</button>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <p class="text-info"><em>* The import feature currently only works with recipes from <a href="https://bbcgoodfood.com" target="_blank">https://bbcgoodfood.com</a></em></p>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <hr>
+    </div>
+    <div class="col-2 text-center">
+      <p class="lead text-info"><strong>OR MANUALLY</strong></p>
+    </div>
+    <div class="col-5">
+      <hr>
+    </div>
+  </div>
+
+
+
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-3 col-form-label">Recipe Name:</label>
+          <div class="col-9">
+            <input class="form-control form-control-sm" formControlName="recipeName" required maxlength="60" minlength="1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-3 col-form-label">Category:</label>
+          <div class="col-9">
+            <select class="form-control form-control-sm" formControlName="category" required>
+              <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-3 col-form-label">Cuisine:</label>
+          <div class="col-9">
+            <select class="form-control form-control-sm" formControlName="cuisine" required>
+              <option *ngFor="let cuisine of cuisines" [value]="cuisine">{{cuisine}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-3 col-form-label">Servings:</label>
+          <div class="col-9">
+            <select class="form-control form-control-sm" formControlName="serving" required>
+              <option *ngFor="let serving of servings" [value]="serving">{{serving}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label">Prep Time (mins):</label>
+          <div class="col-8">
+            <input type="number" min="0" class="form-control form-control-sm" formControlName="prepTime">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label">Cooking Time (mins):</label>
+          <div class="col-8">
+            <input type="number" min="0" class="form-control form-control-sm" formControlName="cookingTime">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-3 col-form-label">Instructions:</label>
+          <div class="col-9">
+            <textarea class="form-control form-control-sm"
+                      formControlName="instructions"
+                      placeholder="Enter instructions here..."
+                      rows="14"></textarea>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="col-md-6">
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <input type="text" class="form-control form-control-sm" #ingredientInput placeholder="Type ingredient e.g. 8 large eggs">
+          </div>
+          <button type="button"
+                  class="btn btn-info btn-sm btn-add-ingredient"
+                  (click)="addIngredient(ingredientInput.value); ingredientInput.value = ''">
+                  Add Ingredient
+          </button>
+          <button (click)="resetIngredients()"
+                  [disabled]="!ingredients.length"
+                  type="button"
+                  class="btn delete-btn btn-sm">
+                  Reset Ingredients
+          </button>
+        </div>
+        <div formArrayName="ingredients" class="well well-sm">
+          <table class="table table-sm">
+            <thead class="thead-default">
+              <tr>
+                <th>#</th>
+                <th>Ingredient Name</th>
+                <th>Measurement</th>
+                <th>Quantity</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i">
+                <th scope="row">{{i+1}}</th>
+                <td>
+                  <input class="form-control form-control-sm" formControlName="ingredientName">
+                </td>
+                <td>
+                  <select class="form-control form-control-sm" formControlName="measurement">
+                    <option *ngFor="let measurement of measurements" [value]="measurement">{{measurement}}</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="number" size="3" min="0" class="form-control form-control-sm" formControlName="quantity">
+                </td>
+                <td>
+                  <button (click)="deleteIngredient(i)" type="button" class="btn btn-sm delete-btn" aria-label="Left Align" [disabled]="ingredients.length <= 1">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <br>
+          <button type="submit" [disabled]="!recipeForm.valid" class="btn btn-success btn-sm">Save Recipe</button> &nbsp;
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+</div>

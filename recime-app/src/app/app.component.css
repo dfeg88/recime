@@ -1,0 +1,8 @@
+#flash-messages {
+  text-align: center;
+  width: 350px;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  font-weight: bold;
+}

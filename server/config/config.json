@@ -1,0 +1,12 @@
+{
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/ReciMeTestDB",
+    "JWT_SECRET": "asdf76a8sd7f6a89sd7fg6a978df6"
+  },
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/ReciMeDevDB",
+    "JWT_SECRET": "sgfds345w5g5gwergw46ggw65gdd"
+  }
+}

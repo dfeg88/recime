@@ -1,0 +1,20 @@
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+#recipe-list {
+  margin-bottom: 0.5em;
+}
+
+.delete-btn {
+  background-color: #a94442;
+  color: white;
+}
+
+button {
+  margin-right: 1em;
+}

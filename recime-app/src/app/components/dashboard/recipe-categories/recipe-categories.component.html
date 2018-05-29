@@ -1,0 +1,9 @@
+<div *ngIf="recipes; else noRecipes">
+  <h4 class="text-center">Recipes ({{recipes.length}} total)</h4>
+  <canvas #donut></canvas>
+</div>
+
+<ng-template #noRecipes>
+  <h4>No Recipes in your library</h4>
+  <p>When you create recipes the category breakdown will appear here</p>
+</ng-template>
